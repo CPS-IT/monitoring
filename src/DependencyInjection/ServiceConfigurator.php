@@ -33,8 +33,6 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
  *
  * @author Elias Häußler <e.haeussler@familie-redlich.de>
  * @license GPL-3.0-or-later
- *
- * @internal
  */
 final class ServiceConfigurator
 {
