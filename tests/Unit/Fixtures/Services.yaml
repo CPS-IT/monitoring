@@ -1,0 +1,19 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+    public: false
+
+  CPSIT\Monitoring\:
+    resource: '../../../src/*'
+  CPSIT\Monitoring\Tests\Unit\Fixtures\:
+    resource: '*'
+
+  CPSIT\Monitoring\Middleware\MonitoringMiddleware:
+    public: true
+  CPSIT\Monitoring\Validation\Validator:
+    alias: CPSIT\Monitoring\Tests\Unit\Fixtures\TestValidator
+
+  _instanceof:
+    CPSIT\Monitoring\Provider\MonitoringProvider:
+      tags: ['monitoring.provider']

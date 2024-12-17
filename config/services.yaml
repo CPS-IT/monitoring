@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+    public: false
+
+  CPSIT\Monitoring\:
+    resource: '../src/*'
+    exclude:
+      - '../src/DependencyInjection/*'
+      - '../src/Result/*'

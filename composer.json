@@ -1,0 +1,88 @@
+{
+	"name": "cpsit/monitoring",
+	"description": "Generic monitoring solution for web applications",
+	"license": "GPL-3.0-or-later",
+	"authors": [
+		{
+			"name": "Elias Häußler",
+			"email": "e.haeussler@familie-redlich.de",
+			"homepage": "https://www.familie-redlich.de",
+			"role": "Maintainer"
+		}
+	],
+	"require": {
+		"php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
+		"ext-json": "*",
+		"guzzlehttp/guzzle": "^6.5 || ^7.0",
+		"guzzlehttp/psr7": "^1.9 || ^2.0",
+		"psr/http-message": "^1.0 || ^2.0",
+		"psr/http-server-handler": "^1.0",
+		"psr/http-server-middleware": "^1.0"
+	},
+	"require-dev": {
+		"ext-iconv": "*",
+		"armin/editorconfig-cli": "^1.7 || ^2.0",
+		"cpsit/php-cs-fixer-config": "^1.1",
+		"ergebnis/composer-normalize": "^2.39",
+		"friendsofphp/php-cs-fixer": "^3.57",
+		"phpstan/extension-installer": "^1.4",
+		"phpstan/phpstan": "^2.0",
+		"phpstan/phpstan-deprecation-rules": "^2.0",
+		"phpstan/phpstan-strict-rules": "^2.0",
+		"phpunit/phpunit": "^10.5 || ^11.0",
+		"rector/rector": "^2.0",
+		"symfony/config": "^5.4 || ^6.0 || ^7.0",
+		"symfony/dependency-injection": "^5.4 || ^6.0 || ^7.0",
+		"symfony/yaml": "^5.4 || ^6.0 || ^7.0"
+	},
+	"suggest": {
+		"symfony/config": "^5.4 || ^6.0 || ^7.0",
+		"symfony/dependency-injection": "^5.4 || ^6.0 || ^7.0",
+		"symfony/yaml": "^5.4 || ^6.0 || ^7.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"CPSIT\\Monitoring\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"CPSIT\\Monitoring\\Tests\\": "tests/"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"ergebnis/composer-normalize": true,
+			"phpstan/extension-installer": true
+		},
+		"sort-packages": true
+	},
+	"scripts": {
+		"fix": [
+			"@fix:composer",
+			"@fix:editorconfig",
+			"@fix:php"
+		],
+		"fix:composer": "@composer normalize",
+		"fix:editorconfig": "@lint:editorconfig --fix",
+		"fix:php": "php-cs-fixer fix",
+		"lint": [
+			"@lint:composer",
+			"@lint:editorconfig",
+			"@lint:php"
+		],
+		"lint:composer": "@fix:composer --dry-run",
+		"lint:editorconfig": "ec",
+		"lint:php": "@fix:php --dry-run",
+		"migration": [
+			"@migration:rector"
+		],
+		"migration:rector": "rector process",
+		"sca": [
+			"@sca:php"
+		],
+		"sca:php": "phpstan analyse -c phpstan.neon",
+		"test": "@test:coverage --no-coverage",
+		"test:coverage": "phpunit -c phpunit.xml"
+	}
+}
