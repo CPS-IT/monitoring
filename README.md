@@ -41,10 +41,10 @@ namespace My\Vendor\Monitoring\Provider;
 use CPSIT\Monitoring\Provider\MonitoringProvider;
 use My\Vendor\Service\ApiService;
 
-final readonly class ApiMonitoringProvider implements MonitoringProvider
+final class ApiMonitoringProvider implements MonitoringProvider
 {
     public function __construct(
-        private ApiService $apiService,
+        private readonly ApiService $apiService,
     ) {}
 
     public function getName(): string
@@ -78,13 +78,13 @@ interface exists. It allows to fetch errors using the `getLastException()` metho
 +use CPSIT\Monitoring\Provider\ExceptionAwareMonitoringProvider;
  use My\Vendor\Service\ApiService;
 
--final readonly class ApiMonitoringProvider implements MonitoringProvider
+-final class ApiMonitoringProvider implements MonitoringProvider
 +final class ApiMonitoringProvider implements ExceptionAwareMonitoringProvider
  {
 +    private ?\Throwable $lastException = null;
 +
      public function __construct(
-         private ApiService $apiService,
+         private readonly ApiService $apiService,
      ) {}
 
      public function getName(): string
@@ -124,11 +124,11 @@ interface is implemented within a concrete provider.
 +use CPSIT\Monitoring\Provider\StatusInformationAwareMonitoringProvider;
  use My\Vendor\Service\ApiService;
 
--final readonly class ApiMonitoringProvider implements MonitoringProvider
-+final readonly class ApiMonitoringProvider implements StatusInformationAwareMonitoringProvider
+-final class ApiMonitoringProvider implements MonitoringProvider
++final class ApiMonitoringProvider implements StatusInformationAwareMonitoringProvider
  {
      public function __construct(
-         private ApiService $apiService,
+         private readonly ApiService $apiService,
      ) {}
 
      public function getName(): string
