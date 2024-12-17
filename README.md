@@ -206,9 +206,10 @@ For this purpose, it is necessary to install the following packages via Composer
 composer require symfony/config symfony/dependency-injection symfony/yaml
 ```
 
-**Note: The dependency injection configuration is an optional component of this package. Therefore,
-required Composer packages are not explicitly required, but only suggested. You must install them
-by your own.**
+> [!NOTE]
+> The dependency injection configuration is an **optional component** of this package. Therefore,
+> required Composer packages are not explicitly required, but only suggested. You must install them
+> **by your own**.
 
 The next step is to load the configuration into the container. For this, the package provides a
 helper class [`ServiceConfigurator`](src/DependencyInjection/ServiceConfigurator.php):
