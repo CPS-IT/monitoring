@@ -81,7 +81,7 @@ interface exists. It allows to fetch errors using the `getLastException()` metho
 -final readonly class ApiMonitoringProvider implements MonitoringProvider
 +final class ApiMonitoringProvider implements ExceptionAwareMonitoringProvider
  {
-+    private \Throwable|null $lastException = null;
++    private ?\Throwable $lastException = null;
 +
      public function __construct(
          private ApiService $apiService,
