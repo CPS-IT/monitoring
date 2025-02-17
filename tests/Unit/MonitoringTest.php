@@ -58,7 +58,7 @@ final class MonitoringTest extends TestCase
         $result = $this->subject->checkHealth([]);
 
         self::assertTrue($result->isHealthy());
-        self::assertCount(0, $result->getProviderResults());
+        self::assertSame([], $result->getProviderResults());
     }
 
     #[Test]

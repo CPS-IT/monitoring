@@ -109,7 +109,6 @@ final class MonitoringResultTest extends TestCase
 
         $this->subject->removeProviderResult($providerResult);
 
-        self::assertCount(0, $this->subject->getProviderResults());
         self::assertSame([], $this->subject->getProviderResults());
     }
 
