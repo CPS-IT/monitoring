@@ -65,16 +65,19 @@ final class MonitoringProviderCompilerPassTest extends TestCase
     {
         $middlewareDefinition = $this->container->findDefinition(MonitoringMiddleware::class);
 
-        self::assertCount(0, $middlewareDefinition->getArguments());
+        self::assertSame([], $middlewareDefinition->getArguments());
 
         $this->container->compile();
 
-        self::assertTrue($this->container->taggedMonitoringProvidersWereRequested);
-        self::assertCount(3, $middlewareDefinition->getArguments());
-        self::assertIsArray($middlewareDefinition->getArguments()[2]);
-        self::assertCount(2, $middlewareDefinition->getArguments()[2]);
+        /** @var list<mixed> $arguments */
+        $arguments = $middlewareDefinition->getArguments();
 
-        foreach ($middlewareDefinition->getArguments()[2] as $monitoringProvider) {
+        self::assertTrue($this->container->taggedMonitoringProvidersWereRequested);
+        self::assertCount(3, $arguments);
+        self::assertIsArray($arguments[2]);
+        self::assertCount(2, $arguments[2]);
+
+        foreach ($arguments[2] as $monitoringProvider) {
             self::assertInstanceOf(Definition::class, $monitoringProvider);
             self::assertNotNull($monitoringProvider->getClass());
             self::assertTrue(is_subclass_of($monitoringProvider->getClass(), MonitoringProvider::class));

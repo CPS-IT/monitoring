@@ -2147,16 +2147,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.12.1",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "123267b2c49fbf30d78a7b2d333f6be754b94845"
+                "reference": "024473a478be9df5fdaca2c793f2232fe788e414"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/123267b2c49fbf30d78a7b2d333f6be754b94845",
-                "reference": "123267b2c49fbf30d78a7b2d333f6be754b94845",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/024473a478be9df5fdaca2c793f2232fe788e414",
+                "reference": "024473a478be9df5fdaca2c793f2232fe788e414",
                 "shasum": ""
             },
             "require": {
@@ -2195,7 +2195,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.12.1"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.0"
             },
             "funding": [
                 {
@@ -2203,7 +2203,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-08T17:47:46+00:00"
+            "time": "2025-02-12T12:17:51+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -3685,21 +3685,21 @@
         },
         {
             "name": "rector/rector",
-            "version": "2.0.8",
+            "version": "2.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "3c70238bc677eb98866000a05b19a34f12955954"
+                "reference": "4393230e478c0006795770fe74c223b5c64ed68c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/3c70238bc677eb98866000a05b19a34f12955954",
-                "reference": "3c70238bc677eb98866000a05b19a34f12955954",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/4393230e478c0006795770fe74c223b5c64ed68c",
+                "reference": "4393230e478c0006795770fe74c223b5c64ed68c",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.1.2"
+                "phpstan/phpstan": "^2.1.3"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -3732,7 +3732,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/2.0.8"
+                "source": "https://github.com/rectorphp/rector/tree/2.0.9"
             },
             "funding": [
                 {
@@ -3740,7 +3740,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-02-06T14:02:49+00:00"
+            "time": "2025-02-10T08:14:01+00:00"
         },
         {
             "name": "sebastian/cli-parser",
