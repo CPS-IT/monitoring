@@ -41,7 +41,7 @@ return RectorConfig::configure()
     ->withPhpVersion(PhpVersion::PHP_82)
     ->withSets([
         LevelSetList::UP_TO_PHP_82,
-        PHPUnitSetList::PHPUNIT_100,
+        PHPUnitSetList::PHPUNIT_110,
         PHPUnitSetList::PHPUNIT_CODE_QUALITY,
     ])
 ;
