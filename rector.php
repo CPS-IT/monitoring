@@ -22,11 +22,6 @@ declare(strict_types=1);
  */
 
 use Rector\Config\RectorConfig;
-use Rector\PHPUnit\CodeQuality\Rector\Class_\NarrowUnusedSetUpDefinedPropertyRector;
-use Rector\PHPUnit\CodeQuality\Rector\Class_\PreferPHPUnitThisCallRector;
-use Rector\PHPUnit\Set\PHPUnitSetList;
-use Rector\Set\ValueObject\LevelSetList;
-use Rector\ValueObject\PhpVersion;
 
 return RectorConfig::configure()
     ->withPaths([
@@ -34,14 +29,6 @@ return RectorConfig::configure()
         __DIR__.'/src',
         __DIR__.'/tests',
     ])
-    ->withSkip([
-        NarrowUnusedSetUpDefinedPropertyRector::class,
-        PreferPHPUnitThisCallRector::class,
-    ])
-    ->withPhpVersion(PhpVersion::PHP_82)
-    ->withSets([
-        LevelSetList::UP_TO_PHP_82,
-        PHPUnitSetList::PHPUNIT_110,
-        PHPUnitSetList::PHPUNIT_CODE_QUALITY,
-    ])
+    ->withPhpSets(php82: true)
+    ->withComposerBased(phpunit: true, symfony: true)
 ;
