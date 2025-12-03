@@ -31,9 +31,9 @@ use Psr\Http\Message\RequestInterface;
  * @author Elias Häußler <e.haeussler@familie-redlich.de>
  * @license GPL-3.0-or-later
  */
-final class RouteValidator implements Validator
+final readonly class RouteValidator implements Validator
 {
-    private readonly string $route;
+    private string $route;
 
     public function __construct(string $route = '/monitor/health')
     {

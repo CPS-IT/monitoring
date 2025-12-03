@@ -38,9 +38,9 @@ return RectorConfig::configure()
         NarrowUnusedSetUpDefinedPropertyRector::class,
         PreferPHPUnitThisCallRector::class,
     ])
-    ->withPhpVersion(PhpVersion::PHP_81)
+    ->withPhpVersion(PhpVersion::PHP_82)
     ->withSets([
-        LevelSetList::UP_TO_PHP_81,
+        LevelSetList::UP_TO_PHP_82,
         PHPUnitSetList::PHPUNIT_100,
         PHPUnitSetList::PHPUNIT_CODE_QUALITY,
     ])
