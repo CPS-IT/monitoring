@@ -41,21 +41,21 @@ use Psr\Http\Server\RequestHandlerInterface;
  * @author Elias Häußler <e.haeussler@familie-redlich.de>
  * @license GPL-3.0-or-later
  */
-final class MonitoringMiddleware implements MiddlewareInterface
+final readonly class MonitoringMiddleware implements MiddlewareInterface
 {
     /**
      * @var Authorizer[]
      */
-    private readonly array $authorizers;
+    private array $authorizers;
 
     /**
      * @param MonitoringProvider[]    $monitoringProviders
      * @param Authorizer|Authorizer[] $authorizers
      */
     public function __construct(
-        private readonly Validator $validator,
-        private readonly Monitoring $monitoring,
-        private readonly array $monitoringProviders,
+        private Validator $validator,
+        private Monitoring $monitoring,
+        private array $monitoringProviders,
         Authorizer|array $authorizers = [],
     ) {
         if (!is_array($authorizers)) {

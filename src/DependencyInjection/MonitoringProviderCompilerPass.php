@@ -36,12 +36,12 @@ use Symfony\Component\DependencyInjection\Reference;
  *
  * @internal
  */
-final class MonitoringProviderCompilerPass implements CompilerPassInterface
+final readonly class MonitoringProviderCompilerPass implements CompilerPassInterface
 {
     public const TAG_NAME = 'monitoring.provider';
 
     public function __construct(
-        private readonly string $serviceId = MonitoringMiddleware::class,
+        private string $serviceId = MonitoringMiddleware::class,
     ) {}
 
     public function process(ContainerBuilder $container): void
