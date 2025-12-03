@@ -3,7 +3,6 @@
 # Monitoring
 
 [![Coverage](https://img.shields.io/coverallsCoverage/github/CPS-IT/monitoring?logo=coveralls)](https://coveralls.io/github/CPS-IT/monitoring)
-[![Maintainability](https://img.shields.io/codeclimate/maintainability/CPS-IT/monitoring?logo=codeclimate)](https://codeclimate.com/github/CPS-IT/monitoring/maintainability)
 [![CGL](https://img.shields.io/github/actions/workflow/status/CPS-IT/monitoring/cgl.yaml?label=cgl&logo=github)](https://github.com/CPS-IT/monitoring/actions/workflows/cgl.yaml)
 [![Tests](https://img.shields.io/github/actions/workflow/status/CPS-IT/monitoring/tests.yaml?label=tests&logo=github)](https://github.com/CPS-IT/monitoring/actions/workflows/tests.yaml)
 [![Supported PHP Versions](https://img.shields.io/packagist/dependency-v/cpsit/monitoring/php?logo=php)](https://packagist.org/packages/cpsit/monitoring)
