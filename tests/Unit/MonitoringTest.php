@@ -28,11 +28,14 @@ use CPSIT\Monitoring\Tests\Unit\Fixtures\CommunicativeMonitoringProvider;
 use CPSIT\Monitoring\Tests\Unit\Fixtures\TestMonitoringProvider;
 use Exception;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\ResponseException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
+
+use function class_exists;
 
 /**
  * MonitoringTest.
@@ -78,7 +81,14 @@ final class MonitoringTest extends TestCase
     public function checkHealthReturnsUnhealthyResultIfAnyProviderIsUnhealthy(): void
     {
         $exception1 = new Exception('Oops, an error occurred.', 1614071643);
-        $exception2 = new RequestException('Oops, another error occurred.', new Request('GET', 'https://www.example.com'), new Response(404));
+
+        if (class_exists(ResponseException::class)) {
+            $exception2 = new ResponseException('Oops, another error occurred.', new Request('GET', 'https://www.example.com'), new Response(404));
+        } else {
+            /* @phpstan-ignore argument.type (Guzzle v7 compatibility) */
+            $exception2 = new RequestException('Oops, another error occurred.', new Request('GET', 'https://www.example.com'), new Response(404));
+        }
+
         $provider1 = new TestMonitoringProvider(true);
         $provider2 = new CommunicativeMonitoringProvider(false, $exception1);
         $provider3 = new CommunicativeMonitoringProvider(false);

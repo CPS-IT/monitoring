@@ -28,7 +28,9 @@ use CPSIT\Monitoring\Provider\MonitoringProvider;
 use CPSIT\Monitoring\Provider\StatusInformationAwareMonitoringProvider;
 use CPSIT\Monitoring\Result\MonitoringProviderResult;
 use CPSIT\Monitoring\Result\MonitoringResult;
-use GuzzleHttp\Exception\RequestException;
+use Psr\Http\Message\ResponseInterface;
+
+use function method_exists;
 
 /**
  * Monitoring.
@@ -83,7 +85,7 @@ final class Monitoring
             return self::ERROR_UNKNOWN;
         }
 
-        if ($lastException instanceof RequestException && ($response = $lastException->getResponse()) !== null) {
+        if (method_exists($lastException, 'getResponse') && ($response = $lastException->getResponse()) instanceof ResponseInterface) {
             return $response->getStatusCode();
         }
 
