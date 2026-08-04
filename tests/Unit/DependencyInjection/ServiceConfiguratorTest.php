@@ -61,7 +61,7 @@ final class ServiceConfiguratorTest extends TestCase
 
         ServiceConfigurator::configure($this->container);
 
-        $this->container->compile();
+        $this->container->compile(true);
 
         self::assertTrue($this->container->hasDefinition(Monitoring::class));
         // DI-related classes should be excluded from service container
