@@ -55,7 +55,7 @@ final class MonitoringProviderCompilerPassTest extends TestCase
     public function processDoesNothingIfMiddlewareDefinitionIsMissing(): void
     {
         $this->container->removeDefinition(MonitoringMiddleware::class);
-        $this->container->compile();
+        $this->container->compile(true);
 
         self::assertFalse($this->container->taggedMonitoringProvidersWereRequested);
     }
@@ -67,7 +67,7 @@ final class MonitoringProviderCompilerPassTest extends TestCase
 
         self::assertSame([], $middlewareDefinition->getArguments());
 
-        $this->container->compile();
+        $this->container->compile(true);
 
         /** @var list<mixed> $arguments */
         $arguments = $middlewareDefinition->getArguments();
