@@ -59,6 +59,9 @@ class MonitoringResult implements JsonSerializable
         return array_values($this->providerResults);
     }
 
+    /**
+     * @impure
+     */
     public function addProviderResult(MonitoringProviderResult $providerResult): self
     {
         $this->providerResults[spl_object_hash($providerResult)] = $providerResult;
@@ -66,6 +69,9 @@ class MonitoringResult implements JsonSerializable
         return $this;
     }
 
+    /**
+     * @impure
+     */
     public function removeProviderResult(MonitoringProviderResult $providerResult): self
     {
         unset($this->providerResults[spl_object_hash($providerResult)]);
