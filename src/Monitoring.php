@@ -74,7 +74,7 @@ final class Monitoring
     {
         $lastException = $monitoringProvider->getLastException();
 
-        return null !== $lastException ? $lastException->getMessage() : self::ERROR_UNKNOWN;
+        return $lastException?->getMessage() ?? self::ERROR_UNKNOWN;
     }
 
     private function getErrorCode(ExceptionAwareMonitoringProvider $monitoringProvider): int|string
